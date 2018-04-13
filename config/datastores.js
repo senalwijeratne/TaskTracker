@@ -51,6 +51,9 @@ module.exports.datastores = {
     // adapter: 'sails-mysql',
     // url: 'mysql://user:password@host:port/database',
 
+    adapter: 'sails-mysql',
+    url: 'mysql://root@localhost:3306/taskTrackerDB',
+
   },
 
 
