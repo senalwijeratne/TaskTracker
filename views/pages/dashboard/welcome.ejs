@@ -2,14 +2,14 @@
   <div class="container">
     <div  style="display: inline-flex;">
       <h2>My Projects</h2>
-      <a href="#"><button class="btn btn-outline-info ml-2">Add New</button></a>
+      <a href="/add-projects"><button class="btn btn-outline-info ml-2">Add New</button></a>
     </div>
     <hr/>
 
     <div class="card">
       <div class="card-header" style="display: inline-flex;">
         <h4>{project.name}</h4>
-        <button class="btn btn-outline-info ml-2 btn-sm edit" style="margin-left: auto !important; margin-right: 0px;" @click="clickOpenDashboardModalButton()">Edit</button>
+        <a class="btn btn-outline-info ml-2 btn-sm edit" style="margin-left: auto !important; margin-right: 0px;"  href="/edit-projects">Edit</a>
       </div>
         <div class="container">
           <p class="mb-2 text-muted">{project.description} Spicy jalapeno bacon ipsum dolor amet biltong prosciutto chicken buffalo doner pig beef ribs salami porchetta strip steak. Porchetta jowl ground round short loin salami pork chop. Ham hock corned beef swine chicken shank andouille rump cow bresaola biltong. Jowl t-bone landjaeger ribeye strip steak, pork pork loin short loin venison.</p>
