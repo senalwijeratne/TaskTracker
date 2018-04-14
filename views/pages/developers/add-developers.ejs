@@ -28,7 +28,7 @@
         <p class="text-danger" v-if="cloudError==='emailAlreadyInUse'"><small>It looks like there's already a developer registered with this email address.</small></p>
         <p class="text-danger" v-else-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/support">contact support</a> if the error persists.</small></p>
         <div class="form-group">
-          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Create account</ajax-button>
+          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Add Developer</ajax-button>
         </div>
       </ajax-form>
     </div>
