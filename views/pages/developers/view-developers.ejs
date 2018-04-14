@@ -1,0 +1,47 @@
+<div id="welcome">
+  <div class="container">
+
+    <div  style="display: inline-flex;">
+      <h2>Developers</h2>
+      <a href="#"><button class="btn btn-outline-info ml-2" style="">Add New</button></a>
+    </div>
+
+    <hr/>
+
+    <div class="card">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Total W/Hours</th>
+            <th scope="col">Status</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{dev.name_01}</td>
+            <td>{dev.name_01@something.com}</td>
+            <td>{30}</td>
+            <td>{working}</td>
+            <td><button class="btn btn-outline-secondary ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/edit.png"/></button></td>
+            <td><button class="btn btn-outline-danger ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/delete.png"/></button></button></td>
+          </tr>
+          <tr>
+            <td>{dev.name_02}</td>
+            <td>{dev.name_02@blahblah123.com}</td>
+            <td>{50}</td>
+            <td>{idle}</td>
+            <td><button class="btn btn-outline-secondary ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/edit.png"/></button></td>
+            <td><button class="btn btn-outline-danger ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/delete.png"/></button></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
