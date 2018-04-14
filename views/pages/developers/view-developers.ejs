@@ -26,21 +26,42 @@
             <td>{dev.name_01@something.com}</td>
             <td>{30}</td>
             <td>{working}</td>
-            <td><button class="btn btn-outline-secondary ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/edit.png"/></button></td>
-            <td><button class="btn btn-outline-danger ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/delete.png"/></button></button></td>
+            <td><button class="btn btn-outline-secondary ml-2 btn-sm"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></button></td>
+            <td><button class="btn btn-outline-danger ml-2 btn-sm" data-toggle="modal" data-target="#deleteDevModal"><img class="cloud cloud-1" alt="A delete icon" src="/images/delete.png"/></button></button></td>
           </tr>
           <tr>
             <td>{dev.name_02}</td>
             <td>{dev.name_02@blahblah123.com}</td>
             <td>{50}</td>
             <td>{idle}</td>
-            <td><button class="btn btn-outline-secondary ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/edit.png"/></button></td>
-            <td><button class="btn btn-outline-danger ml-2 btn-sm"><img class="cloud cloud-1" alt="A tick" src="/images/delete.png"/></button></button></td>
+            <td><a class="btn btn-outline-secondary ml-2 btn-sm" href="/developers/edit-developers"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+            <td><button class="btn btn-outline-danger ml-2 btn-sm" data-toggle="modal" data-target="#deleteDevModal"><img class="cloud cloud-1" alt="A delete icon" src="/images/delete.png"/></button></button></td>
           </tr>
         </tbody>
       </table>
     </div>
 
+
+
+    <div class="modal fade" id="deleteDevModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Warning: You are about to remove a developer from the database
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </div>
 </div>

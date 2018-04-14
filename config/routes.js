@@ -36,6 +36,7 @@ module.exports.routes = {
 
   'GET /developers':         { action: 'developers/view-developers' },
   'GET /developers/add-developers':         { action: 'developers/add-developers' },
+  'GET /developers/edit-developers':         { action: 'developers/edit-developers' },
 
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
