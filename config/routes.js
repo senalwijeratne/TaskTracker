@@ -40,6 +40,10 @@ module.exports.routes = {
   'GET /developers/add-developers':         { action: 'developers/add-developers' },
   'GET /developers/edit-developers':         { action: 'developers/edit-developers' },
 
+  'GET /tasks':         { action: 'tasks/view-tasks' },
+  'GET /tasks/add-tasks':         { action: 'tasks/add-tasks' },
+  'GET /tasks/edit-tasks':         { action: 'tasks/edit-tasks' },
+
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
