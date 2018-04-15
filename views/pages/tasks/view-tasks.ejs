@@ -1,3 +1,46 @@
-<h1> view-tasks.ejs </h1>
-<a class="btn btn-outline-info" href="/tasks/add-tasks">ADD TASKS</a>
-<a class="btn btn-outline-info" href="/tasks/edit-tasks">EDIT TASKS</a>
+<div id="welcome">
+  <div class="container">
+
+    <div  style="display: inline-flex;">
+      <h2>My Tasks</h2>
+      <a href="/tasks/add-tasks"><button class="btn btn-outline-info ml-2" style="">Log Task</button></a>
+    </div>
+
+    <hr/>
+
+    <div class="card">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Project</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Hours</th>
+            <th scope="col">Overtime</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{Task.name_01}</td>
+            <td>{Task01_description}</td>
+            <td>{14-04-2018}</td>
+            <td>{8}</td>
+            <td>{3}</td>
+            <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+          </tr>
+          <tr>
+            <td>{Task.name_02}</td>
+            <td>{Task02_description}</td>
+            <td>{15-04-2018}</td>
+            <td>{7}</td>
+            <td>{0}</td>
+            <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

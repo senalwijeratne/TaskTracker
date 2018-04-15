@@ -21,7 +21,32 @@
           <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Details</ajax-button>
         </div>
       </ajax-form>
+      <hr/>
+      <button class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteDevModal">Delete Developer</button>
     </div>
+
+
+    <div class="modal fade" id="deleteDevModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Warning: You are about to remove a Developer from the database
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
   </div>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
