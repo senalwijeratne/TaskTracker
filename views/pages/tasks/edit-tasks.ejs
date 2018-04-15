@@ -1,0 +1,63 @@
+<div id="signup" v-cloak>
+  <div class="container" v-if="!cloudSuccess">
+    <h2 class="text-center">Edit Task Details</h2>
+    <div class="signup-form">
+      <hr/>
+      <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
+      <form>
+        <div class="form-group">
+          <label for="taskProject">Task Project</label>
+          <select class="form-control" id="taskProject">
+            <option selected>- {task.project} -</option>
+            <option value="1">Project_01</option>
+            <option value="2">Project_02</option>
+            <option value="3">Project_03</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="taskName">Task Name</label>
+          <input type="text" class="form-control" id="taskName" placeholder="{task.name}">
+        </div>
+        <div class="form-group">
+          <label for="taskDescription">Task Description</label>
+          <textarea type="text" class="form-control" id="taskDescription" rows="4" placeholder="{task.description}"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="taskDate">Task Date</label>
+          <input type="text" class="form-control" id="taskDate" placeholder="{task.date}">
+        </div>
+        <div class="form-group">
+          <label for="taskHours">Number of Hours</label>
+          <input type="text" class="form-control" id="taskHours" placeholder="{task.hours}">
+        </div>
+        <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Task</button>
+      </form>
+      <hr/>
+      <button class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteDevModal">Delete Task</button>
+    </div>
+
+
+    <div class="modal fade" id="deleteDevModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Warning: You are about to remove a task from the database
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
