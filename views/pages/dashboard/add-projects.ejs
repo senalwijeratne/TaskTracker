@@ -1,0 +1,53 @@
+<div id="signup" v-cloak>
+  <div class="container" v-if="!cloudSuccess">
+    <h2 class="text-center">Add a Project</h2>
+    <div class="signup-form">
+      <hr/>
+      <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
+      <form>
+        <div class="form-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" class="form-control" id="projectName" placeholder="eg: Task Tracker">
+        </div>
+        <div class="form-group">
+          <label for="projectDescription">Project Description</label>
+          <textarea class="form-control" id="projectDescription" rows="4" placeholder="A brief description of this project"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="projectMembers">Project Members</label>
+          <input type="text" class="form-control" id="projectMembers" placeholder="Some searchable thing...">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th scope="row">{selectedDev01.name}</th>
+                <td>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">{selectedDev02.name}</th>
+                <td>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">{selectedDev03.name}</th>
+                <td>
+                  <button type="button" class="close" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Add Project</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
