@@ -7,7 +7,7 @@
       <form>
         <div class="form-group">
           <label for="taskProject">Task Project</label>
-          <select class="form-control" id="taskProject">
+          <select class="form-control" id="taskProject" name="taskProject">
             <option selected>- Select a project from dropdown -</option>
             <option value="1">Project_01</option>
             <option value="2">Project_02</option>
@@ -16,19 +16,15 @@
         </div>
         <div class="form-group">
           <label for="taskName">Task Name</label>
-          <input type="text" class="form-control" id="taskName" placeholder="eg: Homepage 'OK' Button">
+          <input type="text" class="form-control" id="taskName" name="taskName" placeholder="eg: Homepage 'OK' Button">
         </div>
         <div class="form-group">
           <label for="taskDescription">Task Description</label>
-          <textarea type="text" class="form-control" id="taskDescription" rows="4" placeholder="A brief description of the above task"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="taskDate">Task Date</label>
-          <input type="text" class="form-control" id="taskDate" placeholder="eg: 15-04-2018">
+          <textarea type="text" class="form-control" id="taskDescription" name="taskDescription" rows="4" placeholder="A brief description of the above task"></textarea>
         </div>
         <div class="form-group">
           <label for="taskHours">Number of Hours</label>
-          <input type="text" class="form-control" id="taskHours" placeholder="eg: 10">
+          <input type="text" class="form-control" id="taskHours" name="taskHours" placeholder="eg: 10">
         </div>
         <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Log Task</button>
       </form>
