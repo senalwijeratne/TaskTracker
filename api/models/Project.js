@@ -55,6 +55,11 @@ module.exports = {
     tasks: {
       collection: 'task',
       via: 'project'
+    },
+
+    manager: {
+      model: 'user',
+      unique: true
     }
 
   },
