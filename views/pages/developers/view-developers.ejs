@@ -13,6 +13,8 @@
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Manager</th>
             <th scope="col">Total W/Hours</th>
             <th scope="col">Total Overtime</th>
             <th scope="col">Edit</th>
@@ -25,6 +27,8 @@
               <tr>
                 <td><%=developers.fullName %></td>
                 <td><%=developers.emailAddress %></td>
+                <td><%=developers.isAdmin %></td>
+                <td><%=developers.isManager %></td>
                 <td>{30}</td>
                 <td>{5}</td>
                 <td><a class="btn btn-outline-secondary ml-2 btn-sm" href="/developers/edit-developers"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>

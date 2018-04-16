@@ -1,52 +1,46 @@
 <div id="signup" v-cloak>
   <div class="container" v-if="!cloudSuccess">
-    <h2 class="text-center">Edit {dev.name}'s Details</h2>
+    <h2 class="text-center">Edit Project Details</h2>
     <div class="signup-form">
       <hr/>
       <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
-      <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError">
+      <form>
         <div class="form-group">
-          <label for="full-name">Full name</label>
-          <input class="form-control" id="full-name" name="full-name" type="text"  :class="[formErrors.fullName ? 'is-invalid' : '']" v-model.trim="formData.fullName" placeholder="{dev.name}" focus-first>
-          <div class="invalid-feedback" v-if="formErrors.fullName">Please enter full name.</div>
+          <label for="fullName">Full Name</label>
+          <input type="text" class="form-control" id="fullName" name="fullName" placeholder="{dev.name}">
         </div>
         <div class="form-group">
-          <label for="email-address">Email address</label>
-          <input class="form-control" id="email-address" name="email-address" type="email"  :class="[formErrors.emailAddress ? 'is-invalid' : '']" v-model.trim="formData.emailAddress" placeholder="{dev.email}">
-          <div class="invalid-feedback" v-if="formErrors.emailAddress">Please enter a valid email address.</div>
+          <label for="emailAddress">Email Address</label>
+          <input type="text" class="form-control" id="emailAddress" name="emailAddress" placeholder="{dev.email}">
         </div>
-        <p class="text-danger" v-if="cloudError==='emailAlreadyInUse'"><small>It looks like there's already a developer registered with this email address.</small></p>
-        <p class="text-danger" v-else-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/support">contact support</a> if the error persists.</small></p>
-        <div class="form-group">
-          <ajax-button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Details</ajax-button>
-        </div>
-      </ajax-form>
+        <fieldset class="form-group">
+            <label class="form-check-label">Auth Level</label>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isAdmin" id="isAdmin" value="option1">
+                <label class="form-check-label" for="isAdmin">
+                  Admin
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="isManager" id="isManager" value="option2">
+                <label class="form-check-label" for="Manager">
+                  Manager
+                </label>
+              </div>
+              <div class="form-check disabled">
+                <input class="form-check-input" type="checkbox" name="isDev" id="isDev" value="option3" disabled checked>
+                <label class="form-check-label" for="isDev">
+                  Developer
+                </label>
+              </div>
+            </div>
+        </fieldset>
+        <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Developer Details</button>
+      </form>
       <hr/>
-      <button class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteDevModal">Delete Developer</button>
+      <button type="button" class="btn btn-danger btn-lg btn-block">Delete Developer</button>
     </div>
-
-
-    <div class="modal fade" id="deleteDevModal" name="deleteDevModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle" name="exampleModalCenterTitle">Are you sure?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Warning: You are about to remove a Developer from the database
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
   </div>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
