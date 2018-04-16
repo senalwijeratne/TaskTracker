@@ -59,7 +59,6 @@ module.exports = {
 
     manager: {
       model: 'user',
-      unique: true
     }
 
   },

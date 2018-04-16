@@ -9,6 +9,11 @@ module.exports = {
 
   exits: {
 
+    err: {
+      responseType: 'badRequest',
+      description: 'something somewhere went wrong...'
+    },
+
     success: {
       viewTemplatePath: 'pages/dashboard/welcome',
       description: 'Display the welcome page for authenticated users.'
@@ -19,9 +24,28 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    return exits.success();
+    // get all the managers from DB
+    let managers = await User.find({
+      where: {isManager: 1}
+    })
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('managers are :',managers)
+
+    let projects = await Project.find()
+    .populate('manager')
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('projects are :',projects)
+
+    return exits.success({
+        managers: managers,
+        projects: projects,
+    });
 
   }
-
-
 };
