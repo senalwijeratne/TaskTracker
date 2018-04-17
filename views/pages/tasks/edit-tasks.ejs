@@ -4,33 +4,40 @@
     <div class="signup-form">
       <hr/>
       <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
-      <form>
+      <form action="/tasks/edit-tasks/edit" method="POST">
+        <input type="hidden" class="form-control" id="id" name="id" value="<%=task.id %>">
         <div class="form-group">
-          <label for="taskProject">Task Project</label>
-          <select class="form-control" id="taskProject" name="taskProject">
-            <option selected>- {task.project} -</option>
-            <option value="1">Project_01</option>
-            <option value="2">Project_02</option>
-            <option value="3">Project_03</option>
+          <label for="project">Task Project</label>
+          <select class="form-control" id="project" name="project">
+
+            <% if(projects) { %>
+              <% projects.forEach ( project => { %>
+                <% if (project.id != task.project.id) {%>
+                  <option value="<%=project.id %>"><%=project.projectName %></option>
+                <%  } else {%>
+                  <option value="<%=project.id %>" selected><%=project.projectName %></option>
+              <%  }}) %>
+            <% } %>
+
           </select>
         </div>
         <div class="form-group">
           <label for="taskName">Task Name</label>
-          <input type="text" class="form-control" id="taskName" name="taskName" placeholder="{task.name}">
+          <input type="text" class="form-control" id="taskName" name="taskName" value="<%=task.taskName %>">
         </div>
         <div class="form-group">
           <label for="taskDescription">Task Description</label>
-          <textarea type="text" class="form-control" id="taskDescription" name="taskDescription" rows="4" placeholder="{task.description}"></textarea>
+          <textarea type="text" class="form-control" id="taskDescription" name="taskDescription" rows="4" value=""><%=task.taskDescription %></textarea>
         </div>
         <div class="form-group">
           <label for="taskDate">Task Date</label>
-          <input type="text" class="form-control" id="taskDate" name="taskDate" placeholder="{task.date}">
+          <input type="text" class="form-control" id="taskDate" name="taskDate" value="<%=task.taskDate %>">
         </div>
         <div class="form-group">
           <label for="taskHours">Number of Hours</label>
-          <input type="text" class="form-control" id="taskHours" name="taskHours" placeholder="{task.hours}">
+          <input type="text" class="form-control" id="taskHours" name="taskHours" value="<%=task.taskHours %>">
         </div>
-        <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Task</button>
+        <button type="submit" class="btn-dark btn-lg btn-block">Edit Task</button>
       </form>
       <hr/>
       <button class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#deleteDevModal">Delete Task</button>

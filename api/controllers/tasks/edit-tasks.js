@@ -19,7 +19,27 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    return exits.success();
+    let id = this.req.params
+    let task = await Task.find(id)
+    .populate('project')
+    .populate('assignedDev')
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('Selected task is :', task)
+
+    let projects= await Project.find()
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    // sails.log('Projects are :', projects)
+
+    return exits.success({
+      task: task[0],
+      projects: projects,
+    });
 
   }
 

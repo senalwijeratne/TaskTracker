@@ -4,19 +4,24 @@
     <div class="signup-form">
       <hr/>
       <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
-      <form>
-        <div class="form-group">
-          <label for="taskProject">Task Project</label>
-          <select class="form-control" id="taskProject" name="taskProject">
-            <option selected>- Select a project from dropdown -</option>
-            <option value="1">Project_01</option>
-            <option value="2">Project_02</option>
-            <option value="3">Project_03</option>
-          </select>
-        </div>
+      <form action="/tasks/add-tasks/add" method="POST">
+        <input type="hidden" class="form-control" id="id" name="assignedDev" value="<%=me.id %>">
         <div class="form-group">
           <label for="taskName">Task Name</label>
           <input type="text" class="form-control" id="taskName" name="taskName" placeholder="eg: Homepage 'OK' Button">
+        </div>
+        <div class="form-group">
+          <label for="project">Task Project</label>
+          <select class="form-control" id="project" name="project">
+            <option value="" disabled selected>--please select a project</option>
+
+            <% if(projects) { %>
+              <% projects.forEach (project => { %>
+                <option value="<%=project.id %>"><%=project.projectName %></option>
+              <%  }) %>
+            <% } %>
+
+          </select>
         </div>
         <div class="form-group">
           <label for="taskDescription">Task Description</label>
