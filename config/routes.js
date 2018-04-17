@@ -51,6 +51,7 @@ module.exports.routes = {
   'GET /tasks/add-tasks':          { action: 'tasks/add-tasks' },
   'POST /tasks/add-tasks/add':     { action: 'tasks/add' },
   'GET /tasks/edit-tasks/:id':     { action: 'tasks/edit-tasks' },
+  'GET /tasks/edit-tasks/delete/:id':     { action: 'tasks/delete' },
   'POST /tasks/edit-tasks/edit':   { action: 'tasks/edit' },
 
 
