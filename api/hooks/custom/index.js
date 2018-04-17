@@ -139,16 +139,6 @@ will be disabled and/or hidden in the UI.
 
             }//ﬁ
 
-            // Next, check if this is a GET request to the `webhooks.` or `click.`
-            // subdomains.  If so, we'll automatically go ahead and redirect to the
-            // corresponding path under our base URL, which is environment-specific.
-            // > Note that we DO NOT redirect virtual socket requests and we DO NOT
-            // > redirect non-GET requests (because it can confuse some 3rd party
-            // > platforms that send webhook requests.)
-            if (!req.isSocket && req.method === 'GET' && (req.subdomains[0] === 'webhooks' || req.subdomains[0] === 'links')) {
-              sails.log.info('Redirecting GET request from `'+req.subdomains[0]+'.` subdomain...');
-              return res.redirect(sails.config.custom.baseUrl+req.url);
-            }//•
 
             // No session? Proceed as usual.
             // (e.g. request for a static asset)
@@ -235,6 +225,27 @@ will be disabled and/or hidden in the UI.
               res.locals.isEmailVerificationRequired = sails.config.custom.verifyEmailAddresses;
 
             }//ﬁ
+
+            else if (req.method === 'POST') {
+              var loggedInUser = await User.findOne({
+                id: req.session.userId
+              });
+              var sanitizedUser = _.extend({}, loggedInUser);
+              for (let attrName in User.attributes) {
+                if (User.attributes[attrName].protect) {
+                  delete sanitizedUser[attrName];
+                }
+              }//∞
+
+              // If there is still a "password" in sanitized user data, then delete it just to be safe.
+              // (But also log a warning so this isn't hopelessly confusing.)
+              if (sanitizedUser.password) {
+                sails.log.warn('The logged in user record has a `password` property, but it was still there after pruning off all properties that match `protect: true` attributes in the User model.  So, just to be safe, removing the `password` property anyway...');
+                delete sanitizedUser.password;
+              }//ﬁ
+
+              res.locals.me = sanitizedUser;
+            }
 
             // Prevent the browser from caching logged-in users' pages.
             // (including w/ the Chrome back button)

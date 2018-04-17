@@ -12,8 +12,9 @@
       <table class="table">
         <thead class="thead-light">
           <tr>
-            <th scope="col">Project</th>
             <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Project</th>
             <th scope="col">Date</th>
             <th scope="col">Hours</th>
             <th scope="col">Overtime</th>
@@ -24,6 +25,7 @@
           <tr>
             <td>{Task.name_01}</td>
             <td>{Task01_description}</td>
+            <td>{Task01_Project}</td>
             <td>{14-04-2018}</td>
             <td>{8}</td>
             <td>{3}</td>
@@ -32,6 +34,7 @@
           <tr>
             <td>{Task.name_02}</td>
             <td>{Task02_description}</td>
+            <td>{Task02_Project}</td>
             <td>{15-04-2018}</td>
             <td>{7}</td>
             <td>{0}</td>
@@ -40,7 +43,7 @@
         </tbody>
       </table>
     </div>
-    
+
   </div>
 </div>
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

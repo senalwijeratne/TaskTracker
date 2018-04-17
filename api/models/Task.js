@@ -50,12 +50,10 @@ module.exports = {
 
     project: {
       model: 'project',
-      unique: true
     },
 
     assignedDev: {
       model: 'user',
-      unique: true
     }
 
   },

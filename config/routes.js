@@ -17,9 +17,9 @@ module.exports.routes = {
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome':            { action: 'dashboard/view-welcome' },
   'GET /add-projects':       { action: 'dashboard/add-projects' },
-  'POST /add-projects/add':   { action: 'dashboard/add' },
-  'GET /edit-projects/:id':      { action: 'dashboard/edit-projects' },
-  'POST /add-projects/edit':   { action: 'dashboard/edit' },
+  'POST /add-projects/add':  { action: 'dashboard/add' },
+  'GET /edit-projects/:id':  { action: 'dashboard/edit-projects' },
+  'POST /add-projects/edit': { action: 'dashboard/edit' },
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },
@@ -45,6 +45,7 @@ module.exports.routes = {
 
   'GET /tasks':              { action: 'tasks/view-tasks' },
   'GET /tasks/add-tasks':    { action: 'tasks/add-tasks' },
+  'POST /tasks/add-tasks/add':    { action: 'tasks/add' },
   'GET /tasks/edit-tasks':   { action: 'tasks/edit-tasks' },
 
 

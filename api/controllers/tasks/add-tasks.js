@@ -19,7 +19,16 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    return exits.success();
+    let projects = await Project.find()
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('Projects :', projects)
+
+    return exits.success({
+      projects: projects,
+    });
 
   }
 
