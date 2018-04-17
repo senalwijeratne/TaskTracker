@@ -19,7 +19,12 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    return exits.success();
+    let id = this.req.params
+    let developer = await User.find(id)
+
+    return exits.success({
+      developer: developer[0],
+    });
 
   }
 

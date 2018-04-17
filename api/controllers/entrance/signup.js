@@ -40,7 +40,17 @@ the account verification message.)`,
       type: 'string',
       example: 'Frida Kahlo de Rivera',
       description: 'The user\'s full name.',
-    }
+    },
+
+    isAdmin: {
+      type: 'boolean',
+      description: 'Whether this user is a "admin" with extra permissions, etc.',
+    },
+
+    isManager: {
+      type: 'boolean',
+      description: 'Whether this user is a "Manager" with extra permissions, etc.',
+    },
 
   },
 
@@ -64,6 +74,7 @@ the account verification message.)`,
 
   fn: async function (inputs, exits) {
 
+    sails.log('The isAdmin are', inputs);
     var newEmailAddress = inputs.emailAddress.toLowerCase();
 
     // Build up data for the new user record and save it to the database.
@@ -72,7 +83,10 @@ the account verification message.)`,
       emailAddress: newEmailAddress,
       password: await sails.helpers.passwords.hashPassword(inputs.password),
       fullName: inputs.fullName,
-      tosAcceptedByIp: this.req.ip
+      tosAcceptedByIp: this.req.ip,
+      isAdmin: inputs.isAdmin,
+      isManager: inputs.isManager,
+      isDev: true,
     }, sails.config.custom.verifyEmailAddresses? {
       emailProofToken: await sails.helpers.strings.random('url-friendly'),
       emailProofTokenExpiresAt: Date.now() + sails.config.custom.emailProofTokenTTL,
