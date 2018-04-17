@@ -20,6 +20,7 @@ module.exports.routes = {
   'POST /add-projects/add':  { action: 'dashboard/add' },
   'GET /edit-projects/:id':  { action: 'dashboard/edit-projects' },
   'POST /add-projects/edit': { action: 'dashboard/edit' },
+  'POST /add-projects/add-dev': { action: 'dashboard/add-dev' },
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },

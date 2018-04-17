@@ -53,8 +53,6 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    inputs.projectMembers = 4
-
     sails.log('The inputs are: ', inputs);
 
     var newProjectRecord = await Project.create(Object.assign({

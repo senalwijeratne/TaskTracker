@@ -26,7 +26,7 @@ module.exports = {
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
     });
-    sails.log('Selected project is :',projects)
+    // sails.log('Selected project is :',projects)
 
     let managers = await User.find({
       where: {isManager: 1}
@@ -35,10 +35,20 @@ module.exports = {
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
     });
-    sails.log('managers are :',managers)
+    // sails.log('managers are :',managers)
+
+    let developers = await User.find({
+      where: {isDev: 1}
+    })
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('Developers are :', developers)
 
     return exits.success({
       managers: managers,
+      developers: developers,
       projects: projects[0],
     });
 
