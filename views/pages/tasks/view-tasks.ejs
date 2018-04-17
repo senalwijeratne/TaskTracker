@@ -12,34 +12,29 @@
       <table class="table">
         <thead class="thead-light">
           <tr>
+            <th scope="col">Date</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Project</th>
-            <th scope="col">Date</th>
             <th scope="col">Hours</th>
-            <th scope="col">Overtime</th>
             <th scope="col">Edit</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>{Task.name_01}</td>
-            <td>{Task01_description}</td>
-            <td>{Task01_Project}</td>
-            <td>{14-04-2018}</td>
-            <td>{8}</td>
-            <td>{3}</td>
-            <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
-          </tr>
-          <tr>
-            <td>{Task.name_02}</td>
-            <td>{Task02_description}</td>
-            <td>{Task02_Project}</td>
-            <td>{15-04-2018}</td>
-            <td>{7}</td>
-            <td>{0}</td>
-            <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
-          </tr>
+
+          <% if(tasks) { %>
+            <% tasks.forEach (task => { %>
+              <tr>
+                <td><%=task.taskDate %></td>
+                <td><%=task.taskName %></td>
+                <td><%=task.taskDescription %></td>
+                <td><%=task.project.projectName %></td>
+                <td><%=task.taskHours %></td>
+                <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+              </tr>
+            <%  }) %>
+          <% } %>
+
         </tbody>
       </table>
     </div>
