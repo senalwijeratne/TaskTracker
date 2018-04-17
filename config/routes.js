@@ -36,13 +36,14 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
-  'GET /developers':         { action: 'developers/view-developers' },
+  'GET /developers':                        { action: 'developers/view-developers' },
   'GET /developers/add-developers':         { action: 'developers/add-developers' },
-  'GET /developers/edit-developers/:id':         { action: 'developers/edit-developers' },
+  'GET /developers/edit-developers/:id':    { action: 'developers/edit-developers' },
+  'POST /developers/edit':                  { action: 'developers/edit' },
 
-  'GET /tasks':         { action: 'tasks/view-tasks' },
-  'GET /tasks/add-tasks':         { action: 'tasks/add-tasks' },
-  'GET /tasks/edit-tasks':         { action: 'tasks/edit-tasks' },
+  'GET /tasks':              { action: 'tasks/view-tasks' },
+  'GET /tasks/add-tasks':    { action: 'tasks/add-tasks' },
+  'GET /tasks/edit-tasks':   { action: 'tasks/edit-tasks' },
 
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
