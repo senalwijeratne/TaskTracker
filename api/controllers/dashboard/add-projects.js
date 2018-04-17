@@ -19,7 +19,29 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    return exits.success();
+    let managers = await User.find({
+      where: {isManager: 1}
+    })
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('Managers :',managers)
+
+    let developers = await User.find({
+      where: {isDev: 1}
+    })
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+    sails.log('Developers :',developers)
+
+
+    return exits.success({
+      managers: managers,
+      developers: developers,
+    });
 
   }
 
