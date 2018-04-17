@@ -16,8 +16,10 @@ module.exports.routes = {
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
   'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome':            { action: 'dashboard/view-welcome' },
-  'GET /add-projects':            { action: 'dashboard/add-projects' },
-  'GET /edit-projects':            { action: 'dashboard/edit-projects' },
+  'GET /add-projects':       { action: 'dashboard/add-projects' },
+  'POST /add-projects/add':   { action: 'dashboard/add' },
+  'GET /edit-projects/:id':      { action: 'dashboard/edit-projects' },
+  'POST /add-projects/edit':   { action: 'dashboard/edit' },
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },

@@ -44,7 +44,7 @@ module.exports = {
 
     err: {
       responseType: 'badRequest',
-      description: 'something went wrong~ please try again!'
+      description: 'Oh! seems like something went wrong in \'/developers/edit.js\', Please contact tech support.'
     },
 
     success: {

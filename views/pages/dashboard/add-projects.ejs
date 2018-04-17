@@ -4,7 +4,7 @@
     <div class="signup-form">
       <hr/>
       <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
-      <form>
+      <form action="/add-projects/add" method="POST">
         <div class="form-group">
           <label for="projectName">Project Name</label>
           <input type="text" class="form-control" id="projectName" name="projectName" placeholder="eg: Task Tracker">
@@ -16,13 +16,16 @@
         <div class="form-group">
           <label for="projectManager">Project Manager</label>
           <select class="form-control" id="projectManager" name="projectManager">
-            <option selected>- Select a Manager from dropdown -</option>
-            <option value="1">Manager_01</option>
-            <option value="2">Manager_02</option>
-            <option value="3">Manager_03</option>
+            <option value="" disabled selected>--please select a manager</option>
+            <% if(managers) { %>
+              <% managers.forEach (managers => { %>
+                <option value="<%=managers.id %>"><%=managers.fullName %></option>
+              <%  }) %>
+            <% } %>
+
           </select>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="projectMembers">Project Members</label>
           <input type="text" class="form-control" id="projectMembers" name="projectMembers" placeholder="Some searchable thing...">
           <table class="table">
@@ -53,6 +56,18 @@
               </tr>
             </tbody>
           </table>
+        </div> -->
+        <div class="form-group">
+          <label for="projectMembers">Project Developer</label>
+          <select class="form-control" id="projectMembers" name="projectMembers">
+            <option value="" disabled selected>--please select a developer</option>
+            <% if(developers) { %>
+              <% developers.forEach (developers => { %>
+                <option value="<%=developers.id %>"><%=developers.fullName %></option>
+              <%  }) %>
+            <% } %>
+
+          </select>
         </div>
         <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Add Project</button>
       </form>
