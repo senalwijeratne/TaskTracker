@@ -1,21 +1,21 @@
 <div id="signup" v-cloak>
   <div class="container" v-if="!cloudSuccess">
-    <h2 class="text-center">Edit Project Details</h2>
+    <h2 class="text-center">Edit Project</h2>
     <div class="signup-form">
       <hr/>
       <form action="/add-projects/edit" method="POST">
         <input type="hidden" class="form-control" id="id" name="id" value="<%=projects.id %>">
         <div class="form-group">
           <label for="projectName">Project Name</label>
-          <input type="text" class="form-control" id="projectName" name="projectName" value="<%=projects.projectName %>">
+          <input type="text" class="form-control" id="projectName" name="projectName" value="<%=projects.projectName %>" required>
         </div>
         <div class="form-group">
           <label for="projectDescription">Project Description</label>
-          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4"><%=projects.projectDescription %></textarea>
+          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4" required><%=projects.projectDescription %></textarea>
         </div>
         <div class="form-group">
           <label for="projectManager">Project Manager</label>
-          <select class="form-control" id="projectManager" name="manager" >
+          <select class="form-control" id="projectManager" name="manager"  required>
 
             <% if(managers) { %>
               <% managers.forEach ( manager => { %>
@@ -30,23 +30,40 @@
         </div>
         <button type="submit" class="btn-dark btn-lg btn-block">Edit Project</button>
       </form>
+      <br>
+      <br>
+      <h4 class="text-center">Add A Developer To This Project</h4>
       <hr/>
       <form action="/add-projects/add-dev" method="POST">
         <input type="hidden" class="form-control" id="id" name="id" value="<%=projects.id %>">
         <div class="form-group">
-          <label for="projectDeveloper">Add Developer</label>
-          <select class="form-control" id="projectDeveloper" name="projectDeveloper" >
-
-            <% if(developers) { %>
-              <% developers.forEach ( developer => { %>
+          <!-- <label for="projectDeveloper">Add Developer</label> -->
+          <select class="form-control" id="projectDeveloper" name="projectDeveloper" required>
+            <option value="" disabled selected>-please select a developer</option>
+            <% if(notSelectedDevelopers) { %>
+              <% notSelectedDevelopers.forEach ( developer => { %>
                   <option value="<%=developer.id %>"><%=developer.fullName %></option>
               <%  }) %>
             <% } %>
 
           </select>
         </div>
-        <button type="submit" class="btn-secondary btn-lg btn-block">Add Developer</button>
+        <button type="submit" class="btn-dark btn-lg btn-block">Add Developer</button>
       </form>
+      <br>
+      <br>
+      <h4 class="text-center">Remove Developers From This Project</h4>
+      <br/>
+      <table class="table table-borderless">
+        <tbody>
+          <% projects.dev.forEach ( dev => { %>
+          <tr>
+            <td><%=dev.fullName %></td>
+            <td><a class="btn btn-outline-danger btn-sm" href="/edit-projects/remove/<%=projects.id%>/<%=dev.id %>"> X </a></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
       <hr/>
       <button type="button" class="btn btn-danger btn-lg btn-block">Delete Project</button>
     </div>

@@ -19,6 +19,7 @@ module.exports.routes = {
   'GET /add-projects':       { action: 'dashboard/add-projects' },
   'POST /add-projects/add':  { action: 'dashboard/add' },
   'GET /edit-projects/:id':  { action: 'dashboard/edit-projects' },
+  'GET /edit-projects/remove/:projectID/:devID':  { action: 'dashboard/remove-dev' },
   'POST /add-projects/edit': { action: 'dashboard/edit' },
   'POST /add-projects/add-dev': { action: 'dashboard/add-dev' },
 
