@@ -30,7 +30,7 @@
                 <td><%=task.taskDescription %></td>
                 <td><%=task.project.projectName %></td>
                 <td><%=task.taskHours %></td>
-                <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+                <td><a class="btn btn-outline-secondary btn-sm" href="/tasks/edit-tasks/<%=task.id %>"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
               </tr>
             <%  }) %>
           <% } %>
