@@ -32,18 +32,14 @@
               </tr>
             </thead>
             <tbody>
+              <% projects.dev.forEach (developer => { %>
               <tr>
-                <th>{dev.name_01} + {eID?}</th>
+                <th><%=developer.fullName %></th>
                 <td>{10}</td>
                 <td>{3}</td>
                 <td>{50%}</td>
               </tr>
-              <tr>
-                <th>{dev.name_02} + {eID?}</th>
-                <td>{8}</td>
-                <td>{5}</td>
-                <td>{50%}</td>
-              </tr>
+              <%  }) %>
             </tbody>
           </table>
         </div>

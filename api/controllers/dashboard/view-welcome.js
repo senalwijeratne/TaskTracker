@@ -36,6 +36,7 @@ module.exports = {
 
     let projects = await Project.find()
     .populate('manager')
+    .populate('dev')
     .intercept((err)=>{
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
