@@ -3,17 +3,34 @@
     <h2 class="text-center">Edit Project Details</h2>
     <div class="signup-form">
       <hr/>
-      <!-- <ajax-form action="signup" :syncing.sync="syncing" :cloud-error.sync="cloudError" @submitted="submittedForm()" :handle-parsing="handleParsingForm"> -->
-      <form>
+      <form action="/add-projects/edit" method="POST">
+        <input type="hidden" class="form-control" id="id" name="id" value="<%=projects.id %>">
         <div class="form-group">
           <label for="projectName">Project Name</label>
-          <input type="text" class="form-control" id="projectName" name="projectName" placeholder="{project.name}">
+          <input type="text" class="form-control" id="projectName" name="projectName" value="<%=projects.projectName %>">
         </div>
         <div class="form-group">
           <label for="projectDescription">Project Description</label>
-          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4" placeholder="{project.description}"></textarea>
+          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="4"><%=projects.projectDescription %></textarea>
         </div>
+
         <div class="form-group">
+          <label for="projectManager">Project Manager</label>
+          <select class="form-control" id="projectManager" name="manager" >
+
+            <% if(managers) { %>
+              <% managers.forEach ( manager => { %>
+                <% if (projects.manager.id != manager.id) {%>
+                  <option value="<%=manager.id %>"><%=manager.fullName %></option>
+                <%  } else {%>
+                  <option value="<%=manager.id %>" selected><%=manager.fullName %></option>
+              <%  }}) %>
+            <% } %>
+
+          </select>
+        </div>
+
+        <!-- <div class="form-group">
           <label for="projectMembers">Project Members</label>
           <input type="text" class="form-control" id="projectMembers" name="projectMembers" placeholder="Some searchable thing...">
           <table class="table">
@@ -44,8 +61,9 @@
               </tr>
             </tbody>
           </table>
-        </div>
-        <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Edit Project</button>
+        </div> -->
+
+        <button type="submit" class="btn-dark btn-lg btn-block">Edit Project</button>
       </form>
       <hr/>
       <button type="button" class="btn btn-danger btn-lg btn-block">Delete Project</button>

@@ -16,7 +16,7 @@
         <div class="form-group">
           <label for="projectManager">Project Manager</label>
           <select class="form-control" id="projectManager" name="projectManager">
-
+            <option value="" disabled selected>--please select a manager</option>
             <% if(managers) { %>
               <% managers.forEach (managers => { %>
                 <option value="<%=managers.id %>"><%=managers.fullName %></option>
@@ -58,9 +58,9 @@
           </table>
         </div> -->
         <div class="form-group">
-          <label for="projectMembers">Project Members</label>
+          <label for="projectMembers">Project Developer</label>
           <select class="form-control" id="projectMembers" name="projectMembers">
-
+            <option value="" disabled selected>--please select a developer</option>
             <% if(developers) { %>
               <% developers.forEach (developers => { %>
                 <option value="<%=developers.id %>"><%=developers.fullName %></option>
