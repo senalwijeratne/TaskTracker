@@ -35,14 +35,13 @@
           <img width="30" height="30" alt="A large Task Tracker logo" src="/images/task-screen.png"/>
           Task Tracker
         </a>
-        dakjdsbf
         <div class="navbar-nav flex-row">
           <!-- LOGGED-IN NAVIGATION -->
           <% if(me) { %>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/tasks">Tasks</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/welcome">Projects</a>
           <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/developers">Developers</a>
-          <a class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0" href="/contact">Help</a>
+          <span class="nav-item nav-link ml-2 ml-md-0 mr-2 mr-md-0"> | </span>
           <!-- Only in desktop nav -->
           <div class="nav-item dropdown d-none d-sm-block">
             <a class="nav-link dropdown-toggle" id="header-account-menu-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=me.fullName %> (
