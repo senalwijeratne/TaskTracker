@@ -58,6 +58,11 @@ features being built right now.`
       description: 'Whether this user is a "Developer" with extra permissions, etc.',
     },
 
+    isDeleted: {
+      type: 'boolean',
+      description: 'Specifies if a this record has been deleted by the users',
+    },
+
     passwordResetToken: {
       type: 'string',
       description: 'A unique token used to verify the user\'s identity when recovering a password.  Expires after 1 use, or after a set amount of time has elapsed.'

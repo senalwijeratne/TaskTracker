@@ -14,14 +14,15 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
-  'GET /welcome':            { action: 'dashboard/view-welcome' },
-  'GET /add-projects':       { action: 'dashboard/add-projects' },
-  'POST /add-projects/add':  { action: 'dashboard/add' },
-  'GET /edit-projects/:id':  { action: 'dashboard/edit-projects' },
+  'GET /':                                        { action: 'view-homepage-or-redirect' },
+  'GET /welcome':                                 { action: 'dashboard/view-welcome' },
+  'GET /add-projects':                            { action: 'dashboard/add-projects' },
+  'POST /add-projects/add':                       { action: 'dashboard/add' },
+  'GET /edit-projects/:id':                       { action: 'dashboard/edit-projects' },
   'GET /edit-projects/remove/:projectID/:devID':  { action: 'dashboard/remove-dev' },
-  'POST /add-projects/edit': { action: 'dashboard/edit' },
-  'POST /add-projects/add-dev': { action: 'dashboard/add-dev' },
+  'GET /edit-projects/delete/:projectID':         { action: 'dashboard/delete' },
+  'POST /add-projects/edit':                      { action: 'dashboard/edit' },
+  'POST /add-projects/add-dev':                   { action: 'dashboard/add-dev' },
 
   'GET /faq':                { view:   'pages/faq' },
   'GET /legal/terms':        { view:   'pages/legal/terms' },
@@ -40,15 +41,17 @@ module.exports.routes = {
   'GET /account/password':   { action: 'account/view-edit-password' },
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
-  'GET /developers':                        { action: 'developers/view-developers' },
-  'GET /developers/add-developers':         { action: 'developers/add-developers' },
-  'GET /developers/edit-developers/:id':    { action: 'developers/edit-developers' },
-  'POST /developers/edit':                  { action: 'developers/edit' },
+  'GET /developers':                               { action: 'developers/view-developers' },
+  'GET /developers/add-developers':                { action: 'developers/add-developers' },
+  'GET /developers/edit-developers/:id':           { action: 'developers/edit-developers' },
+  'GET /developers/edit-developers/delete/:id':    { action: 'developers/delete' },
+  'POST /developers/edit':                         { action: 'developers/edit' },
 
-  'GET /tasks':              { action: 'tasks/view-tasks' },
-  'GET /tasks/add-tasks':    { action: 'tasks/add-tasks' },
-  'POST /tasks/add-tasks/add':    { action: 'tasks/add' },
-  'GET /tasks/edit-tasks/:id':   { action: 'tasks/edit-tasks' },
+  'GET /tasks':                    { action: 'tasks/view-tasks' },
+  'GET /tasks/add-tasks':          { action: 'tasks/add-tasks' },
+  'POST /tasks/add-tasks/add':     { action: 'tasks/add' },
+  'GET /tasks/edit-tasks/:id':     { action: 'tasks/edit-tasks' },
+  'GET /tasks/edit-tasks/delete/:id':     { action: 'tasks/delete' },
   'POST /tasks/edit-tasks/edit':   { action: 'tasks/edit' },
 
 

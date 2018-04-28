@@ -19,7 +19,9 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    let tasks = await Task.find()
+    let tasks = await Task.find({
+      where: {isDeleted: false}
+    })
     .populate('project')
     .populate('assignedDev')
     .intercept((err)=>{

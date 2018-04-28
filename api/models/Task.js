@@ -39,6 +39,11 @@ module.exports = {
       example: 1
     },
 
+    isDeleted: {
+      type: 'boolean',
+      description: 'Specifies if a this record has been deleted by the users',
+    },
+
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝

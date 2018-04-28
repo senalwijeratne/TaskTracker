@@ -26,22 +26,26 @@ module.exports = {
 
     // get all the managers from DB
     let managers = await User.find({
-      where: {isManager: 1}
+      where: {
+        isManager: true,
+      }
     })
     .intercept((err)=>{
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
     });
-    sails.log('managers are :',managers)
+    // sails.log('managers are :',managers)
 
-    let projects = await Project.find()
+    let projects = await Project.find({
+      where: {isDeleted: 0}
+    })
     .populate('manager')
     .populate('dev')
     .intercept((err)=>{
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
     });
-    sails.log('projects are :',projects)
+    // sails.log('projects are :',projects)
 
     return exits.success({
         managers: managers,

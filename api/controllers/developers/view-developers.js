@@ -26,7 +26,10 @@ module.exports = {
 
     //
     let developers = await User.find({
-      where: {isDev: 1}
+      where: {
+        isDev: 1,
+        isDeleted: 0,
+      }
     })
     .intercept((err)=>{
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
