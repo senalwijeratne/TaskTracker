@@ -28,13 +28,14 @@ module.exports = {
 
     let id = this.req.params.id
 
-    let deletedTask = await Task.destroy(id).fetch()
-
-    if(deletedTask.length === 0){
-      sails.log('No Project found with id: ',id)
-    } else {
-      sails.log('Deleted Project with id: ', id)
-    }
+    await Task.update(id)
+    .set({
+      isDeleted: true,
+    })
+    .intercept((err)=>{
+       err.message = 'Ah Crap! Something went wrong in \'tasks/delete.js\', Call tech support fam: '+err.message;
+       return err;
+    })
 
     return exits.deleted('/tasks');
 

@@ -28,13 +28,14 @@ module.exports = {
 
     let id = this.req.params.id
 
-    let deletedDeveloper = await User.destroy(id).fetch()
-    
-    if(deletedDeveloper.length === 0){
-      sails.log('No Developer found with id: ',id)
-    } else {
-      sails.log('Deleted Developer with id: ', id)
-    }
+    await User.update(id)
+    .set({
+      isDeleted: true,
+    })
+    .intercept((err)=>{
+       err.message = 'Ah Crap! Something went wrong in \'developers/delete.js\', Call tech support fam: '+err.message;
+       return err;
+    })
 
     return exits.deleted('/developers');
 

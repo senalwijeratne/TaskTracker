@@ -28,13 +28,14 @@ module.exports = {
 
     let id = this.req.params.projectID
 
-    let deletedProject = await Project.destroy(id).fetch()
-
-    if(deletedProject.length === 0){
-      sails.log('No Project found with id: ',id)
-    } else {
-      sails.log('Deleted Project with id: ', id)
-    }
+    let deletedProject = await Project.update(id)
+    .set({
+      isDeleted: true,
+    })
+    .intercept((err)=>{
+       err.message = 'Ah Crap! Something went wrong in \'dashboard/delete.js\', Call tech support fam: '+err.message;
+       return err;
+    })
 
     return exits.deleted('/welcome');
 
