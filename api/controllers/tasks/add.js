@@ -25,7 +25,13 @@ module.exports = {
       type: 'number',
       required: true,
       description: 'How many hours was spent on this task',
-      example: 1
+      example: 10
+    },
+
+    taskOvertime: {
+      type: 'number',
+      description: 'How many hours was spent on this task',
+      example: 3
     },
 
     project: {
@@ -69,8 +75,8 @@ module.exports = {
     var newTaskRecord = await Task.create(Object.assign({
       taskName: inputs.taskName,
       taskDescription: inputs.taskDescription,
-      // taskDate: date,
       taskHours: inputs.taskHours,
+      taskOvertime: inputs.taskOvertime,
       project: inputs.project,
       assignedDev: inputs.assignedDev,
     }))

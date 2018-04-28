@@ -28,8 +28,12 @@
           <textarea type="text" class="form-control" id="taskDescription" name="taskDescription" rows="4" placeholder="A brief description of the above task"></textarea>
         </div>
         <div class="form-group">
-          <label for="taskHours">Number of Hours</label>
+          <label for="taskHours">Work Hours</label>
           <input type="text" class="form-control" id="taskHours" name="taskHours" placeholder="eg: 10">
+        </div>
+        <div class="form-group">
+          <label for="taskHours">Overtime Hours</label>
+          <input type="text" class="form-control" id="taskHours" name="taskOvertime" placeholder="eg: 2">
         </div>
         <button type="submit" :syncing="syncing" class="btn-dark btn-lg btn-block">Log Task</button>
       </form>

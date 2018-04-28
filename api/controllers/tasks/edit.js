@@ -27,18 +27,17 @@ module.exports = {
       description: 'The topbar navigation on the website was in a wrong size & colour, this has been corrected by this task'
     },
 
-    // taskDate: {
-    //   type: 'number', ???
-    //   required: true,
-    //   description: 'A task\'s completed date',
-    //   example: 1 ???
-    // },
-
     taskHours: {
       type: 'number',
       required: true,
       description: 'How many hours was spent on this task',
-      example: 1
+      example: 10
+    },
+
+    taskOvertime: {
+      type: 'number',
+      description: 'How many hours was spent on this task',
+      example: 3
     },
 
     project: {

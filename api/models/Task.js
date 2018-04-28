@@ -26,17 +26,18 @@ module.exports = {
       description: 'The topbar navigation on the website was in a wrong size & colour, this has been corrected by this task'
     },
 
-    taskDate: {
-      type: 'number',
-      description: 'A JS timestamp (epoch ms) representing the day this task was completed',
-      example: 1502844074211
-    },
-
     taskHours: {
       type: 'number',
       defaultsTo: 0,
       description: 'How many hours was spent on this task',
-      example: 1
+      example: 6
+    },
+
+    taskOvertime: {
+      type: 'number',
+      defaultsTo: 0,
+      description: 'How many hours was spent on this task',
+      example: 3
     },
 
     isDeleted: {
