@@ -20,7 +20,10 @@ module.exports = {
   fn: async function (inputs, exits) {
 
     let tasks = await Task.find({
-      where: {isDeleted: false}
+      where: {
+        isDeleted: false,
+        assignedDev: this.req.me.id,
+      }
     })
     .populate('project')
     .populate('assignedDev')
