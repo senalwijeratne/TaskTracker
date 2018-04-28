@@ -1,7 +1,7 @@
 <div id="welcome">
   <div class="container">
     <div  style="display: inline-flex;">
-      <h2>My Projects</h2>
+      <h2>Ongoing Projects</h2>
       <a href="/add-projects"><button class="btn btn-outline-info ml-2">Add New</button></a>
     </div>
     <hr/>
@@ -35,7 +35,7 @@
               <% projects.dev.forEach (developer => { %>
               <tr>
                 <th><%=developer.fullName %></th>
-                <td>{10}</td>
+                <td><%=developer.totalHours %></td>
                 <td>{3}</td>
                 <td>{50%}</td>
               </tr>
