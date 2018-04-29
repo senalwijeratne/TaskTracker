@@ -56,7 +56,7 @@ module.exports.routes = {
 
   'GET /my-projects/:id':  { action: 'api/my-projects' },
   'GET /developer-details/:id':  { action: 'api/developer-details' },
-
+  'PUT /tasks/edit-task/:id':   { action: 'api/edit-task' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
