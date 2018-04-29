@@ -55,6 +55,8 @@ module.exports.routes = {
   'POST /tasks/edit-tasks/edit':   { action: 'tasks/edit' },
 
   'GET /my-projects/:id':  { action: 'api/my-projects' },
+  'GET /developer-details/:id':  { action: 'api/developer-details' },
+
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗

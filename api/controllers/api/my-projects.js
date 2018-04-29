@@ -15,7 +15,7 @@ module.exports = {
     },
     success: {
       statusCode: 200,
-      description: 'Welcome.',
+      description: 'An API call was made',
     },
 
   },
