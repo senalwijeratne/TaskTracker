@@ -54,9 +54,9 @@ module.exports.routes = {
   'GET /tasks/edit-tasks/delete/:id':     { action: 'tasks/delete' },
   'POST /tasks/edit-tasks/edit':   { action: 'tasks/edit' },
 
+  'DELETE /task/:id':            { action: 'api/delete-task' },
   'GET /my-projects/:id':  { action: 'api/my-projects' },
   'GET /developer-details/:id':  { action: 'api/developer-details' },
-  'PUT /tasks/edit-task/:id':   { action: 'api/edit-task' },
 
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
