@@ -21,6 +21,9 @@
           </div>
             <div class="container">
               <p class="mb-2 text-muted"><%=projects.projectDescription %></p>
+              <h6 style="text-align: right">
+                Total Project Hours : <%=projects.projSummary.totalProjectHours %>
+              </h6>
             </div>
             <table class="table">
             <thead class="thead-light">
@@ -32,14 +35,26 @@
               </tr>
             </thead>
             <tbody>
-              <% projects.dev.forEach (developer => { %>
+              <% projects.projSummary.devDetails.forEach (developer => { %>
               <tr>
                 <th><%=developer.fullName %></th>
-                <td><%=developer.totalHours %></td>
-                <td>{3}</td>
-                <td>{50%}</td>
+                <td><%=developer.workHours %></td>
+                <td><%=developer.overTimeHours %></td>
+                <td>
+                  <% if(developer.contribution) { %>
+                    <%=developer.contribution %>%
+                  <% } else { %>
+                    N/A
+                  <% } %>
+                </td>
               </tr>
               <%  }) %>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
             </tbody>
           </table>
         </div>
