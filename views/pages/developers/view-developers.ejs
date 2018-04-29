@@ -3,7 +3,9 @@
 
     <div  style="display: inline-flex;">
       <h2>Developers</h2>
-      <a href="/developers/add-developers"><button class="btn btn-outline-info ml-2" style="">Add New</button></a>
+      <% if(me.isAdmin || me.isManager) { %>
+        <a href="/developers/add-developers"><button class="btn btn-outline-info ml-2" style="">Add New</button></a>
+      <% } %>
     </div>
 
     <hr/>
@@ -17,7 +19,9 @@
             <th scope="col">Manager</th>
             <th scope="col">Total W/Hours</th>
             <th scope="col">Total Overtime</th>
-            <th scope="col">Edit</th>
+            <% if(me.isAdmin || me.isManager) { %>
+              <th scope="col">Edit</th>
+            <% } %>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +35,9 @@
                 <td><%=developers.isManager %></td>
                 <td><%=developers.devSummary.workHours %></td>
                 <td><%=developers.devSummary.overTimeHours %></td>
-                <td><a class="btn btn-outline-secondary ml-2 btn-sm" href="/developers/edit-developers/<%=developers.id %>"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+                <% if(me.isAdmin || me.isManager) { %>
+                  <td><a class="btn btn-outline-secondary ml-2 btn-sm" href="/developers/edit-developers/<%=developers.id %>"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
+                <% } %>
               </tr>
             <%  }) %>
           <% } %>

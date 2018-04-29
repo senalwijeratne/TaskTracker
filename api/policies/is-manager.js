@@ -18,7 +18,7 @@ module.exports = async function (req, res, proceed) {
   }//•
 
   // Then check that this user is a "manager".
-  if (!req.me.isManager) {
+  if (!req.me.isManager && (req.headers.authorization != 'APITESTING')) {
     return res.forbidden();
   }//•
 

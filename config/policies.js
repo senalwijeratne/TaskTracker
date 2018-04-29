@@ -18,7 +18,12 @@ module.exports.policies = {
   'view-homepage-or-redirect': true,
   'deliver-contact-form-message': true,
 
-  // 'dashboard/add-projects/*': 'is-admin',
-  // 'dashboard/edit-projects/*': 'is-admin',
+  'dashboard/add-projects/*': 'is-admin',
+  'dashboard/edit-projects/*': 'is-admin',
+
+  'developers/add-developers/*': 'is-admin-or-manager',
+  'developers/edit-developers/*': 'is-admin-or-manager',
+
+
 
 };
