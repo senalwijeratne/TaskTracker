@@ -68,8 +68,6 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    // let date = Date.UTC(Date())
-    // sails.log('Date variable holds: ', date);
     sails.log('Inputs are: ', inputs)
 
     var newTaskRecord = await Task.create(Object.assign({
