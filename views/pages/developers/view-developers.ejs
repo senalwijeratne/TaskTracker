@@ -29,8 +29,8 @@
                 <td><%=developers.emailAddress %></td>
                 <td><%=developers.isAdmin %></td>
                 <td><%=developers.isManager %></td>
-                <td>{30}</td>
-                <td>{5}</td>
+                <td><%=developers.devSummary.workHours %></td>
+                <td><%=developers.devSummary.overTimeHours %></td>
                 <td><a class="btn btn-outline-secondary ml-2 btn-sm" href="/developers/edit-developers/<%=developers.id %>"><img class="cloud cloud-1" alt="A pencil icon" src="/images/edit.png"/></a></td>
               </tr>
             <%  }) %>

@@ -35,6 +35,33 @@ module.exports = {
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
     });
+
+    let tasks = await Task.find()
+    .intercept((err)=>{
+       err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
+       return err;
+    });
+
+    developers.forEach( dev =>{
+      let devSummary = {}
+      let individualWorkHours = 0
+      let individualOvertimeHours = 0
+
+      tasks.forEach( task => {
+
+        if(task.assignedDev === dev.id){
+          individualWorkHours += task.taskHours
+          individualOvertimeHours += task.taskOvertime
+        }
+      })
+
+      devSummary.workHours = individualWorkHours
+      devSummary.overTimeHours = individualOvertimeHours
+
+      dev.devSummary = devSummary
+
+    })
+
     sails.log('Developers :',developers)
 
     return exits.success({
