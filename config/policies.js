@@ -19,7 +19,7 @@ module.exports.policies = {
   'deliver-contact-form-message': true,
 
   'dashboard/add-projects/*': 'is-admin',
-  'dashboard/edit-projects/*': 'is-admin',
+  'dashboard/edit-projects/*': 'is-admin-or-manager',
 
   'developers/add-developers/*': 'is-admin-or-manager',
   'developers/edit-developers/*': 'is-admin-or-manager',
