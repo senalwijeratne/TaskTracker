@@ -28,12 +28,14 @@ module.exports = {
 
     startDate: {
       type: 'number',
+      allowNull: true,
       description: 'A JS timestamp (epoch ms) representing the moment at which this project started',
       example: 1502844074211
     },
 
     endDate: {
       type: 'number',
+      allowNull: true,
       description: 'A JS timestamp (epoch ms) representing the moment at which this project ended',
       example: 1502844074211
     },

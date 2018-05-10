@@ -17,6 +17,7 @@
         <fieldset class="form-group">
             <label class="form-check-label">Auth Level</label>
             <div class="col-sm-10">
+              <% if(me.isAdmin) { %>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="isAdmin" id="isAdmin" value="true"
                 <% if(developer.isAdmin) { %>
@@ -27,6 +28,7 @@
                   Admin
                 </label>
               </div>
+              <% } %>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="isManager" id="isManager" value="true"
                 <% if(developer.isManager) { %>

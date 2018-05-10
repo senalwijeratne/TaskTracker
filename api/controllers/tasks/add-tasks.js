@@ -19,11 +19,19 @@ module.exports = {
 
   fn: async function (inputs, exits) {
 
-    let projects = await Project.find()
+    let {id} = this.req.me
+
+    let dev = await User.find(id)
+    .populate('projects')
     .intercept((err)=>{
        err.message = 'Something went wrong somewhere, contact tech support : '+ err.message;
        return err;
-    });
+    })
+
+    sails.log('Dev :', dev)
+
+    let projects = dev[0].projects
+
     sails.log('Projects :', projects)
 
     return exits.success({
